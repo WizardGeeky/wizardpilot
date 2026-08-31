@@ -279,7 +279,7 @@ GEMINI_MODEL="gemini-2.5-flash"
 
 # Security & Sessions (AES-256-GCM 32-byte hex key)
 AUTH_SECRET="your_auth_secret_key_here"
-ENCRYPTION_KEY="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+ENCRYPTION_KEY="your_encryption_key_here"
 
 # Application Base URL
 NEXT_PUBLIC_APP_URL="http://localhost:3000"

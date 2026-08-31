@@ -54,7 +54,7 @@ GITHUB_TOKEN="your_github_pat_token"
 GEMINI_API_KEY="your_google_gemini_api_key"
 GEMINI_MODEL="gemini-2.5-flash"
 AUTH_SECRET="your_auth_secret_key_here"
-ENCRYPTION_KEY="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+ENCRYPTION_KEY="your_encryption_key_here"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 

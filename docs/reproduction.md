@@ -32,7 +32,31 @@ Copy `.env.example` to `.env.local`:
 cp .env.example .env.local
 ```
 
-*(Note: If you have a Google Gemini API key or GitHub token, populate them in `.env.local`. WizardPilot also includes a built-in intelligent autonomous simulation fallback if no API key is provided, allowing full local reproducibility without external API dependencies.)*
+#### Environment Variables Reference
+| Variable | Required / Mode | Default / Example | Purpose |
+|---|:---:|---|---|
+| `DATABASE_URL` | Optional | `postgresql://postgres:postgres@localhost:5432/wizardpilot` | PostgreSQL connection string (in-memory store used if omitted). |
+| `GITHUB_CLIENT_ID` | Optional | `your_github_client_id` | GitHub OAuth App Client ID. |
+| `GITHUB_CLIENT_SECRET` | Optional | `your_github_client_secret` | GitHub OAuth App Client Secret. |
+| `GITHUB_TOKEN` | Optional | `ghp_...` | GitHub Personal Access Token (PAT). |
+| `GEMINI_API_KEY` | Optional | `AIzaSy...` | Google Gemini AI Key (autonomous offline simulation enabled if omitted). |
+| `GEMINI_MODEL` | Optional | `gemini-2.5-flash` | Gemini model variant. |
+| `AUTH_SECRET` | Optional | `32-byte-hex-string` | JWT session signature secret. |
+| `ENCRYPTION_KEY` | Optional | `64-hex-char-key` | AES-256-GCM 32-byte hex encryption key. |
+| `NEXT_PUBLIC_APP_URL` | Optional | `http://localhost:3000` | Frontend web application URL. |
+
+#### Complete `.env.local` Example
+```env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/wizardpilot"
+GITHUB_CLIENT_ID="your_github_client_id"
+GITHUB_CLIENT_SECRET="your_github_client_secret"
+GITHUB_TOKEN="your_github_pat_token"
+GEMINI_API_KEY="your_google_gemini_api_key"
+GEMINI_MODEL="gemini-2.5-flash"
+AUTH_SECRET="your_auth_secret_key_here"
+ENCRYPTION_KEY="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
 
 ---
 

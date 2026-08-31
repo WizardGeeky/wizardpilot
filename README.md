@@ -243,11 +243,47 @@ cd wizardpilot
 npm install
 ```
 
-### 2. Environment Setup
+### 2. Environment Configuration (`.env.local`)
+Create your local `.env.local` file:
 ```bash
 cp .env.example .env.local
 ```
-*(Populate Gemini API Key or GitHub Token if desired; offline autonomous simulation runs out-of-the-box without keys).*
+
+#### Environment Variables Reference
+
+| Variable | Required / Mode | Default / Example | Purpose |
+|---|:---:|---|---|
+| `DATABASE_URL` | Optional | `postgresql://postgres:postgres@localhost:5432/wizardpilot` | PostgreSQL database connection string. If omitted, WizardPilot seamlessly falls back to an in-memory repository store. |
+| `GITHUB_CLIENT_ID` | Optional | `your_github_client_id` | GitHub OAuth App Client ID for user login. |
+| `GITHUB_CLIENT_SECRET` | Optional | `your_github_client_secret` | GitHub OAuth App Client Secret. |
+| `GITHUB_TOKEN` | Optional | `ghp_...` | GitHub Personal Access Token (PAT) used for reading repositories and branches. |
+| `GEMINI_API_KEY` | Optional | `AIzaSy...` | Google Gemini AI API key. If omitted, the autonomous offline simulation engine executes all 8 agents deterministically. |
+| `GEMINI_MODEL` | Optional | `gemini-2.5-flash` | Gemini model variant (e.g., `gemini-2.5-flash`, `gemini-1.5-pro`). |
+| `AUTH_SECRET` | Optional | `32-byte-hex-string` | Secret key used for signing session cookies. |
+| `ENCRYPTION_KEY` | Optional | `64-hex-char-key` | 32-byte hexadecimal string for AES-256-GCM encryption of tokens at rest. |
+| `NEXT_PUBLIC_APP_URL` | Optional | `http://localhost:3000` | Canonical frontend application URL. |
+
+#### Complete `.env.local` Configuration Example
+```env
+# Database PostgreSQL (Optional - in-memory fallback enabled by default)
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/wizardpilot"
+
+# GitHub OAuth & API (Optional - simulation available)
+GITHUB_CLIENT_ID="your_github_client_id"
+GITHUB_CLIENT_SECRET="your_github_client_secret"
+GITHUB_TOKEN="your_github_pat_token"
+
+# Google Gemini AI Key & Model (Optional - offline autonomous simulation enabled by default)
+GEMINI_API_KEY="your_google_gemini_api_key"
+GEMINI_MODEL="gemini-2.5-flash"
+
+# Security & Sessions (AES-256-GCM 32-byte hex key)
+AUTH_SECRET="your_auth_secret_key_here"
+ENCRYPTION_KEY="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+
+# Application Base URL
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
 
 ### 3. Run Verification & Benchmark Test Suite
 ```bash

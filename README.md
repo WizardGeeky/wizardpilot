@@ -238,7 +238,7 @@ export function calculateDeterministicConfidence(inputs: ConfidenceInputs): Conf
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/wizardpilot-org/wizardpilot.git
+git clone https://github.com/WizardGeeky/wizardpilot.git
 cd wizardpilot
 npm install
 ```

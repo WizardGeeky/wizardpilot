@@ -17,7 +17,7 @@ This guide allows any reviewer or engineer starting from a completely clean envi
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/wizardpilot-org/wizardpilot.git
+git clone https://github.com/WizardGeeky/wizardpilot.git
 cd wizardpilot
 ```
 
